@@ -1,0 +1,36 @@
+@startuml command
+    abstract class Command 
+    Command <|-- MoveCommand
+
+    class Command {
+       +execute()
+       +undo()
+       +redo()
+    }
+    class MoveCommand {
+        +MoveCommand(Character& c)
+        +Character m_ch
+        +m_old_x
+        +m_old_y
+        +m_x 
+        +m_y
+    }
+    class Character {
+       +m_last_x
+       +m_last_y
+       +getlastx()
+       +getlasty()
+       +move(int x, int y)
+    }
+    class ComandManager {
+       +executeCmd(Character& c, shared_ptr<Command> command)
+       +undo()
+       +redo()
+       -stack m_undo_stack
+       -stack m_redo_stack
+
+    }
+    MoveCommand::m_ch o- Character 
+    Command -o ComandManager::m_undo_stack
+    Command -o ComandManager::m_redo_stack
+@enduml
