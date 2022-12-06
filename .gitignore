@@ -1,5 +1,5 @@
-CmMakeFiles
+CMakeFiles
 CMakeCache*
 cmake_install.cmake
-:w
-
+command-patern/command-pattern
+strategy-pattern/strategy-pattern

@@ -5,3 +5,8 @@ This repository is an ongoing effort to study oop Design Patterns and its applic
 ## Command Pattern
 
 [Command Pattern](command-pattern/README.md)
+
+
+## Srategy Pattern
+
+[Strategy Pattern](strategy-pattern/README.md)

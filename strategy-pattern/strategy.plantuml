@@ -1,0 +1,26 @@
+@startuml strategy
+    abstract class ListStrategy 
+    ListStrategy <|-- MarkdownListStrategy
+    ListStrategy <|-- HTMLListStrategy
+
+    class TextProcessor {
+       +clear()
+       +AppendList()
+       +set_output_format()
+       +str()
+       -ostringstream            m_oss
+       -unique_ptr<ListStrategy> m_list_strategy
+    }
+    class ListStrategy {
+        +~ListStrategy() = default
+        +void add_list_item(ostringstream& oss, string& item)
+        +void start(ostringstream& oss)
+        +void end(ostringstream& oss)
+    }
+    class MarkdownListStrategy {
+    }
+    class HTMLListStrategy {
+    }
+
+    TextProcessor::m_list_strategy o- ListStrategy 
+@enduml
